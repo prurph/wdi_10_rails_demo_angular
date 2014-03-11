@@ -1,0 +1,18 @@
+<!-- default view; shows all products -->
+<h1 class="text-center">Products</h1>
+
+<!-- search box for filtering -->
+<input type="text" ng-model="search.$">
+
+<!-- product listing -->
+<div class="product-listing" ng-repeat="product in data.products |
+filter:search">
+
+  <!-- click handler on product name -->
+  <h3><a ng-click="viewPost($index+1)">{{product.name}}</a></h3>
+
+  <!-- display product price and description -->
+  <div class="product-info">Price: {{product.price}}</div>
+  <div class="product-description">Description: {{product.description}}
+  </div>
+</div>
