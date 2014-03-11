@@ -6,8 +6,13 @@
 
 var StoreFront = angular.module('StoreFront', ['ngRoute']);
 
-StoreFront.config(['$routeProvider', function($routeProvider){
+StoreFront.config(["$routeProvider", function($routeProvider){
   // single product route "/product/:productId"
+  $routeProvider.when("/product/new", {
+    templateUrl: "../assets/mainCreateProduct.html",
+    controller: "IndexCtrl"
+  });
+
   $routeProvider.when("/product/:productId", {
     templateUrl: "../assets/mainProduct.html",
     controller: "ProductCtrl"
@@ -15,7 +20,12 @@ StoreFront.config(['$routeProvider', function($routeProvider){
 
   // default route
   $routeProvider.otherwise({
-    templateUrl: '../assets/mainIndex.html',
-    controller: 'IndexCtrl'
+    templateUrl: "../assets/mainIndex.html",
+    controller: "IndexCtrl"
   });
+}]);
+
+StoreFront.config(["$httpProvider", function(provider) {
+  provider.defaults.headers.common["X-CSRF-Token"] =
+    document.querySelector("[name='csrf-token']").content;
 }]);

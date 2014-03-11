@@ -9,6 +9,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'angularjs-rails'
 gem 'active_model_serializers'
 gem 'quiet_assets'
+gem 'bootstrap-sass'
+gem 'flat-ui-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
